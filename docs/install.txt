@@ -1,0 +1,38 @@
+RMSOFT Downloads Plus 1.5
+CopyRight © 2005. Red México Soft
+Advanced Module for the downloads administration
+====================================================
+
+ATENTION: If you have already installed version 1.2 of RMSOFT
+	  Downloads Plus please follow the update instructions
+	  before uploading files.
+
+
+
+INSTALLATION
+-------------------
+Follow these easy steps to install the module:
+
+1. Upload directory "rmdp" to the directory "modules/" in your web server.
+2. Go to the XOOPS control panel -> Module Administration.
+3. Intall the module
+4. DONE!.
+
+
+UPDATING
+-------------------
+¡ BEFORE UPLOADING FILES FOLLOW THIS STEPS !
+
+Follow these steps to update the module:
+
+1. Create a backup of RMSOFT Downloads Plus data to prevent data lost.
+1. Upload file "update.php" to the directory "modules/rmdp" in your webserver.
+2. Point you browser to "http://www.yoursite.com/modules/rmdp/update.php"
+   replace "yoursite.com" for your own domain
+3. Follow the instructions showed in the screen
+4. Once had finish the script execution upload the new files to your webserver.
+5. Go to de XOOPS Control Panel-> Modules Administration
+6. Update the módule
+7. DONE!
+
+For more information please visit www.xoops-mexico.net

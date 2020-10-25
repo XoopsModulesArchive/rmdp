@@ -1,0 +1,22 @@
+<!-- Enlaces Patrocinados //-->
+	<table width="100%"  border="0" cellspacing="0" cellpadding="0" class="sponsor_body">
+      <tr>
+	  <!-- Inicia ciclo de Sponsors -->
+	  <{assign var="i" value="1"}>
+	  <{foreach item=spon from=$sponsors}>
+	    <{if $i>3}>
+		</tr><tr>
+			<{assign var="i" value="1"}>
+		<{/if}>
+        <td width="33%" class="element"><a href="down.php?id=<{$spon.id}>"><{$spon.title}></a><br><{$spon.desc}><br>
+		<a href="down.php?id=<{$spon.id}>">
+		<img src="images/down_icon.gif" width="17" height="17" border="0"></a>
+		<a href="down.php?id=<{$spon.id}>"><{$lang_download_now}></a>
+		</td>
+      	<{assign var="i" value=$i+1}>
+	  <{/foreach}>
+	  <td width="20" valign="middle"><img src="images/sponsor.gif" border="0" alt="">
+	  </tr>
+	  <!-- Termina ciclo de Sponsors -->
+    </table>
+	<!-- Fin de enlaces Patrocinados //-->

@@ -1,0 +1,23 @@
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr><td align="right" style="font-size: 10px;">Powered by <a href="http://www.xoops-mexico.net/">RMSOFT Downloads Plus</a></td></tr>
+</table>
+<table width="100%" cellpadding="2" cellspacing="0" class="search">
+  <tr>
+    <td align="center" class="cuerpo"><form action="search.php" method="get" name="frmSrh" id="frmSrh">
+      <input class="txtSrh" name="key" type="text" id="key" size="20" maxlength="50" value="<{$key}>">
+      <select name="cat" class="txtSrh">
+	  <option value="0" selected><{$lng_allweb}></option>
+	  <{foreach item=option from=$srhoptions}>
+	  	<option value="<{$option.id}>"><{$option.nombre}></option>
+	  <{/foreach}>
+      </select>      
+      <input type="submit" class="txtSrh" name="Submit" value="<{$lng_search_button}>">
+      <br>
+    </form></td>
+  </tr>
+  <tr>
+    <td height="20"  class="cuerpo"><a href="popular.php"><{$lng_viewpop}></a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="favorites.php"><{$lng_viewfav}></a>
+	&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="brated.php"><{$lng_bestrate}></a>
+	&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="submit.php"><{$lng_senddown}></a></td>
+  </tr>
+</table>

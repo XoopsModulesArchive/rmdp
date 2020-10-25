@@ -1,0 +1,135 @@
+<div class="rmdp_navigation"><{$location_bar}></div><br>
+<{include file="$module_path/templates/rmdp_nav_srh.html"}><br>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="down_title"><{$download.nombre}> <{if $download.ispopular}><span class="rmdp_popular"><{$lang_popular}></span><{/if}></td>
+  </tr>
+  <tr>
+  	<td class="down_down"><a href="down.php?id=<{$download.id}>&amp;sw=now&amp;auto=1"><img src="images/down_icon32.gif" border="0" width="32" height="32" align="absmiddle"></a> 
+	<a href="down.php?id=<{$download.id}>&amp;sw=now&amp;auto=1"><{$lang_download_now}></a><br><div align="center"><{$admin_options}> <{$user_options}></div></td>
+  </tr>
+  <tr>
+    <td><table width="100%"  border="0" cellspacing="0" cellpadding="4">
+      <tr>
+        <td width="50%" align="center" valign="top" style="background-color: #F8F8F8;">
+		<!-- Información de la Descarga -->
+		<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="down_info">
+			 <{$lng_downloads}> <strong><{$download.descargas}></strong></td>
+			<td class="down_info1">
+			<{$lng_os}> <strong><{$download.os}></strong>
+			</td>
+          </tr>
+		  <tr><td class="down_info"><{$lng_sendby}> <a href="<{$xoops_url}>/userinfo.php?uid=<{$download.submitter}>"><{$download.uname}></a></td>
+		  <td class="down_info1"><{$lng_licence}> <strong><{$download.licence}></strong></td></tr>
+		  <tr><td class="down_info">
+		  <{$lng_date}> <strong><{$download.fecha}></strong>
+			<{if $download.isnew}>
+				<span style="font-size: 10px; font-weight: bold; color: #FF6600; font-style: italic; "><{$lng_isnew}></span>
+			<{elseif $download.isupdate}>
+				<span style="font-size: 10px; font-weight: bold; color: #FF6600; font-style: italic; "><{$lng_isupdate}></span>
+			<{/if}>
+		  </td>
+		  <td class="down_info1"><{$lng_filesize}> <strong><{$download.size}></strong></td></tr>
+		  <tr><td class="down_info">
+		  <{$lng_web_site}> <a href="<{$download.url}>" target="_blank"><{$download.homepage}></a>
+		  </td><td class="down_info1">
+		  <{$lng_screenshot}> <strong><{$download.shots}></strong>
+			<{if $download.shots>0 }>
+			<a style="font-size: 10px; font-style: italic;" href="shots.php?id=<{$download.id}>"><{$lng_viewshots}></a>
+			<{/if}></td></tr>
+		  <tr><td class="down_info">
+		  <{$lng_rating}> <img src="images/rating<{$download.rating}>.gif" align='absmiddle'>
+		  </td><td class="down_info1">
+		  <{$lng_our_rating}> <img src="images/ourrate<{$download.calificacion}>.gif" border="0" align="absmiddle">
+		  </td></tr>
+		  <tr><td class="down_info" style="border-bottom: 1px solid #CCCCCC;"><{$vote_form}></td>
+		  <td class="down_info1" style="border-bottom: 1px solid #CCCCCC;"><{if $num_mirrors>0}><a href="down.php?id=<{$download.id}>&amp;sw=now&amp;auto=0"><{$alternate_links}></a><{/if}>&nbsp;</td></tr>
+        </table>		 
+		</td></tr>
+    </table>
+	<!-- Fin de Información de la descarga -->
+	</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="rmdp_revies"><a href="#users"><{$lng_usercomments}></a> &nbsp;&nbsp; <a href="#editor"><{$lng_editorcom}></a></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left" class="editor_review">
+	<{if $rmdp_showbanner==1}>
+		<!-- Mostramos el banner -->
+		<div class="banner" style="float: right; margin-right: 4px;"><{$code_banner}></div>
+		<!-- fin del banner -->
+	<{/if}>
+	<span class="down_commtitle"><{$lng_publisher_desc}></span><br>
+	<br>
+	<span style="text-align: justify; "><{$download.desc}></span>
+	</td>
+  </tr>
+  <{if $download.editor != ''}>
+  <tr>
+    <td align="left" class="editor_review"><a name="editor"></a><span class="down_commtitle"><{$lng_editorcom}></span><br><br>
+	<{if $download.calificacion > 0}>
+		<img src="images/rate/editor<{$download.calificacion}>.gif" border="0" align="left" style="padding-right: 6px; padding-bottom: 1px;">
+	<{/if}>
+	<span style="text-align: justify; "><{$download.editor}></span></td>
+  </tr>
+  <{/if}>
+  <tr>
+    <td align="left">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="36" align="left"><a href="down.php?id=<{$download.id}>&amp;sw=now&amp;auto=1"><img src="images/down_icon32.gif" border="0" width="32" height="32" align="absmiddle"></a></td>
+        <td class="down_down"><a href="down.php?id=<{$download.id}>&amp;sw=now&amp;auto=1"><{$lang_download_now}></a><br>
+            <span style="font-size: 10px;"><{$lng_filesize}> <{$download.size}></span></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td align="left">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="1" bgcolor="#666666"><img src="images/pixel.gif" width="1" height="1"></td>
+  </tr>
+  <tr>
+    <td align="left">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left">
+	<!-- Comentarios -->
+	<div style="text-align: center; padding: 3px; margin:3px;">
+  <{$commentsnav}>
+  <{$lang_notice}>
+</div>
+
+    <a name="users"></a>
+    <div style="margin:3px; padding: 3px;">
+<!-- start comments loop -->
+<{if $comment_mode == "flat"}>
+  <{include file="db:system_comments_flat.html"}>
+<{elseif $comment_mode == "thread"}>
+  <{include file="db:system_comments_thread.html"}>
+<{elseif $comment_mode == "nest"}>
+  <{include file="db:system_comments_nest.html"}>
+<{/if}>
+<!-- end comments loop -->
+</div>
+<{include file="db:system_notification_select.html"}>
+	<!-- fin de Comentarios -->	</td>
+  </tr>
+  <tr>
+    <td align="left">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left">&nbsp;</td>
+  </tr>
+</table>

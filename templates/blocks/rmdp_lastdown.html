@@ -1,0 +1,16 @@
+<{foreach item=down from=$block.lastdown}>
+<!-- Imagen de la descarga -->
+<{if $down.img!='' }>
+	<div align="center" style="padding: 4px; text-align:center;">
+		<a href="<{$xoops_url}>/modules/rmdp/down.php?id=<{$down.id}>" title="<{$down.titulo}>"><img src="<{$down.img}>" style="border: 1px solid #000000;"></a>
+	</div>
+<{/if}>
+<div style="font-size: 10px; text-align: left; padding: 4px; border-bottom: 1px solid #CCCCCC;">
+<strong><a href="<{$xoops_url}>/modules/rmdp/down.php?id=<{$down.id}>"><{$down.titulo}></a></strong><br>
+<{$down.version}>
+<br><a href="<{$xoops_url}>/modules/rmdp/categos.php?id=<{$down.cat_id}>"><{$down.cat_name}></a>
+<br><{$down.size}>
+<br><{$down.fecha}><br>
+<{$down.autor}><br></div>
+<!-- Fin de imágen -->
+<{/foreach}>

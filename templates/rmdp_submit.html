@@ -1,0 +1,38 @@
+<{include file="$module_path/templates/rmdp_nav_srh.html"}>
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><{$lang_info}></td>
+  </tr>
+  <tr>
+    <td><{$lang_info2}></td>
+  </tr>
+  <tr><td>&nbsp;</td></tr>
+  <tr>
+    <td>
+	<{$frmNew.javascript}>
+	<form onsubmit="return xoopsFormValidate_frmNew();" name="<{$frmNew.name}>" id="<{$frmNew.name}>" action="<{$frmNew.action}>" method="<{$frmNew.method}>" <{$frmNew.extra}>>
+		<table width="100%" class="outer" cellspacing="1">
+			<tr><th colspan="2"><{$frmNew.title}></th></tr>
+			<{foreach item=form from=$frmNew.elements}>
+			<tr align="left" class="even"><td><{$form.caption}> <{if $form.required}>*<{/if}></td>
+			<td><{$form.body}></td></tr>
+			<{/foreach}>
+			<tr><th colspan="2"><{$mirrors_title}></th></tr>
+			<{foreach item=mir from=$mirrors}>
+			<tr class="odd" align="left"><td><{$mir.title}></td>
+			<td><input type="text" name="mirrortitle[]" size="50" maxlength="100"></td></tr>
+			<tr class="odd" align="left"><td><{$mir.url}></td>
+			<td><input type="text" name="mirrorfile[]" size="50" maxlength="255"></td></tr>
+			<{/foreach}>
+			<tr class="even" align="left"><td><input type="hidden" name="op" value="save"></td>
+			<td><input type="submit" name="sbt" value="<{$lang_send}>">
+			<input type="button" name="cancel" value="<{$lang_cancel}>" onclick="javascript: history.go(-1);"></td>
+		</table>
+	</form>
+	</td>
+  </tr>
+</table>

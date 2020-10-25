@@ -1,0 +1,56 @@
+<{include file="$module_path/templates/rmdp_nav_srh.html"}><br>
+<{include file="$module_path/templates/rmdp_sponsored.html"}><br>
+<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>
+	<!-- Tabla para las categorías -->
+		<table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr align="left"><td valign="top">
+				<{include file="$root_path/modules/rmdp/templates/rmdp_categos_simple.html"}>
+			</td>
+			<{if $rmdp_showbanner==1}>
+			<!-- Mostramos el banner -->
+			<td valign="top">
+			<div class="banner"><{$code_banner}></div></td>
+			<!-- fin del banner -->
+			<{/if}>
+			</tr>
+		</table>
+	<!-- Fin de tabla para las categorías -->
+	</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>
+	<!-- Tabla para lo nuevo en categorías -->
+	<img src="images/<{$module_language}>/ournews.gif" border="0" alt="">
+	<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+		<!-- Ciclo para lo nuevo -->
+		<{assign var="i" value="1"}>
+		<tr>
+		<{foreach item=catego from=$categos_with_news}>
+			<{if $i>2 }>
+				</tr><tr>
+				<{assign var="i" value="1"}>
+			<{/if}>
+			<td class="<{cycle values="thenews_even,thenews_odd"}>" valign="top">
+			<{if $catego.img!=''}><a href="categos.php?id=<{$catego.id}>"><img src="<{$catego.img}>" border="0" alt="<{$catego.nombre}>"></a><{/if}>
+			<br>
+			<span class="thenewin"><{$catego.nombre}></span><br><br>
+			<a href="down.php?id=<{$catego.down_id}>" class="vinculo"><{$catego.down_nombre}></a><br>
+			<{$catego.down_desc}>
+			</td>
+			<{assign var="i" value=$i+1}>
+		<{/foreach}>
+		</tr>
+    </table>
+	<!-- Fin de tabla para lo nuevo en categorías -->	</td>
+  </tr>
+  <tr>
+    <td><br>
+	<{include file="$root_path/modules/rmdp/templates/rmdp_fav_pop.html"}>
+	</td>
+  </tr>
+</table>

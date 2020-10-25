@@ -1,0 +1,51 @@
+<table width="95%"  border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="48%" valign="top"><table width="100%"  border="0" cellpadding="0" cellspacing="0" class="categos">
+          <tr>
+            <td width="46" bgcolor="#0099FF" class="title"><img src="images/<{$module_language}>/fav_title_left.gif" width="46" height="31"></td>
+            <td bgcolor="#0099FF" class="title"><img src="images/<{$module_language}>/fav_title.gif" width="128" height="31"></td>
+          </tr>
+          <tr>
+            <td colspan="2" class="even"><{$lng_favmsg}><br><br></td>
+          </tr>
+		  <!-- Ciclo de favoritos -->
+		  <{assign var="i" value="1"}>
+		  <{foreach item=fav from=$favoritos}>
+          <tr>
+            <td colspan="2" class="<{cycle values="odd,even"}>">
+			<strong><{$i}>.</strong> <strong><a href="down.php?id=<{$fav.id}>" class="vinculo"><{$fav.nombre}></a></strong><br>
+			<span style="font-size: 10px; "><{$fav.desc}></span>			</td>
+          </tr>
+		  <{assign var="i" value=$i+1}>
+		  <{/foreach}>
+		  <!-- fin del ciclo de favoritos -->
+        </table></td>
+        <td width="4%"><img src="images/pixel.gif" width="1" height="1"></td>
+        <td width="48%" valign="top"><table width="100%"  border="0" cellpadding="0" cellspacing="0" class="categos">
+          <tr>
+            <td width="46" bgcolor="#99CC00" class="title"><img src="images/<{$module_language}>/pop_title_left.gif" width="46" height="31"></td>
+            <td bgcolor="#99CC00" class="title"><img src="images/<{$module_language}>/pop_title.gif" width="128" height="31"></td>
+          </tr>
+          <tr>
+            <td colspan="2" class="even">&nbsp;</td>
+          </tr>
+		  <!-- Ciclo de Populares -->
+		  <{assign var="i" value="1"}>
+		  <{foreach item=pop from=$populares}>
+          <tr>
+            <td colspan="2" class="<{cycle values="odd,even"}>">
+			<strong><{$i}>.</strong> <strong><a href="down.php?id=<{$pop.id}>" class="vinculo"><{$pop.nombre}></a></strong><br>
+			<span style="font-size: 10px; "><{$pop.desc}></span>			</td>
+          </tr>
+		  <{assign var="i" value=$i+1}>
+		  <{/foreach}>
+		  <!-- fin del ciclo de Populares -->
+        </table></td>
+      </tr>
+    </table><br>
+	<div align="center" style="padding: 4px;">
+		<a href="rss.php" title="Todas las descargas"><img src="images/rss_all.gif" border="0"></a>
+		<{if $rss_catego>0}>
+			<a href="rss.php?cat=<{$rss_catego}>" title="Esta categoría"><img src="images/rss_catego.gif" border="0"></a>
+		<{/if}>
+	</div>

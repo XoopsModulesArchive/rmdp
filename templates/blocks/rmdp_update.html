@@ -1,0 +1,6 @@
+<table width='100%' cellpadding="3" cellspacing="0" border="0">
+<{foreach item=down from=$block.updatedowns}>
+<tr class="<{cycle values="even,odd"}>"><td align='left'><a href="<{$xoops_url}>/modules/rmdp/down.php?id=<{$down.id}>"><{$down.nombre}></a></td>
+<td align="center"><{$down.descargas}></td></tr>
+<{/foreach}>
+</table>

@@ -1,0 +1,10 @@
+<div class="rmdp_navigation"><{$location_bar}></div>
+<{include file="$module_path/templates/rmdp_nav_srh.html"}><br>
+<{include file="$module_path/templates/rmdp_sponsored.html"}><br>
+<div class="head"><{$lng_shotsof}></div><br>
+<div align="center"><a href="shots.php?id=<{$soft_id}>" title="<{$lang_back}>"><img src="<{$shot.img}>" border='0' width="<{$img_width}>" style="border: 1px solid #000000;"></a><br>
+	<br><{$shot.desc}>
+	<{if $shot.isnew}><img src="images/new.gif" border="0"><{/if}><br><br>
+	<img src="images/view_shots.gif" border="0" align="absmiddle"> <{$shot.views}></div>
+<br>
+<{include file="$module_path/templates/rmdp_fav_pop.html"}>

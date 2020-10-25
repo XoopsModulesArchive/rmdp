@@ -1,0 +1,95 @@
+<script type="text/javascript">
+<!--
+function DivShow(idSoft,ImgSrc)
+{
+	if (ImgSrc==''){ ImgSrc = 'images/no_image.gif'; }
+	if	(document.layers) {
+		document.layers['res' + idSoft].visibility="visible";
+		document.layers('img' + idSoft).src = "images/<{$module_language}>/hideinfo.gif";
+		document.layers('lnk' + idSoft).href = "javascript: Ocultar(" + idSoft + ",'" + ImgSrc + "');";
+		document.layers('shot' + idSoft).src = ImgSrc;
+	} else if (document.getElementById) {
+		document.getElementById('res' + idSoft).style.display="";
+		document.getElementById('res' + idSoft).style.visibility="visible";
+		document.getElementById('img' + idSoft).src = "images/<{$module_language}>/hideinfo.gif";
+		document.getElementById('lnk' + idSoft).href = "javascript: Ocultar(" + idSoft + ",'" + ImgSrc + "');";
+		document.getElementById('shot' + idSoft).src = ImgSrc;
+	} else if (document.all) {
+		document.all('res' + idSoft).style.display="";
+		document.all('res' + idSoft).style.visibility="visible";	
+		document.all('img' + idSoft).src = "images/<{$module_language}>/hideinfo.gif";
+		document.all('lnk' + idSoft).href = "javascript: Ocultar(" + idSoft + ",'" + ImgSrc + "');";
+		document.all('shot' + idSoft).src = ImgSrc;
+	}
+	
+}
+
+function Ocultar(idSoft,ImgSrc) 
+{
+	if	(document.layers) {
+		document.layers['res' + idSoft].visibility="hidden";
+		document.layers('img' + idSoft).src = "images/<{$module_language}>/showinfo.gif";
+		document.layers('lnk' + idSoft).href = "javascript: DivShow(" + idSoft + ",'" + ImgSrc + "');"; 
+	} else if (document.getElementById) {
+		document.getElementById('res' + idSoft).style.display="none";
+		document.getElementById('res' + idSoft).style.visibility="hidden";
+		document.getElementById('img' + idSoft).src = "images/<{$module_language}>/showinfo.gif";
+		document.getElementById('lnk' + idSoft).href = "javascript: DivShow(" + idSoft + ",'" + ImgSrc + "');"; 
+	} else if (document.all) {
+		document.all('res' + idSoft).style.display="none";
+		document.all('res' + idSoft).style.visibility="hidden";
+		document.all('img' + idSoft).src = "images/<{$module_language}>/showinfo.gif";
+		document.all('lnk' + idSoft).href = "javascript: DivShow(" + idSoft + ",'" + ImgSrc + "');"; 
+	}
+	
+}
+-->
+</script>
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0" class="rmdp_results">
+      <tr align="center">
+        <td align="left" class="order_results" style="border-right: 1px solid #cccccc; padding 4px; border-top: 1px solid #cccccc; border-left: 1px solid #cccccc; border-bottom: 1px solid #cccccc;"><{$lng_resort_by}> <strong><a href="<{$rmdp_uri}>?id=<{$element_id}>&amp;sort=0&amp;ad=<{$element_ad}>"><{$lng_nombre}></a></strong></td>
+        <td class="order_results" style="border-right: 1px solid #cccccc; padding 4px; border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc;">
+		<strong><a href="<{$rmdp_uri}>?id=<{$element_id}>&amp;sort=1&amp;ad=<{$element_ad}>"><{$lng_fecha}></a></strong></td>
+        <td class="order_results" style="border-right: 1px solid #cccccc; padding 4px; border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc;">
+		<strong><a href="<{$rmdp_uri}>?id=<{$element_id}>&amp;sort=4&amp;ad=<{$element_ad}>"><{$lng_downloads}></a></strong></td>
+        <td class="order_results" style="padding 4px; border-top: 1px solid #cccccc; border-right: 1px solid #cccccc; border-bottom: 1px solid #cccccc;">
+		<strong><a href="<{$rmdp_uri}>?id=<{$element_id}>&amp;sort=5&amp;ad=<{$element_ad}>"><{$lng_sendby}></a></strong></td>
+      </tr>
+	  <!--inicia ciclo de resultados -->
+	  <{foreach item=soft from=$downloads}>
+      <tr class="<{cycle values="rmdp_even,rmdp_odd"}>"<{if $soft.resaltar}> style="background-color: <{$resalte_bg}>;"<{/if}>>
+        <td style="border-right: 1px solid #cccccc;">
+		<div align="right"><a href="javascript: DivShow(<{$soft.id}>,'<{$soft.img}>');" id="lnk<{$soft.id}>"><img src="images/<{$module_language}>/showinfo.gif" border="0" id="img<{$soft.id}>"></a></div>
+		<{if $soft.issponsor}>
+			<img src="images/mark_sponsor.gif" border="0" align="absmiddle"> <span class="rmdp_sponsored"><{$lang_sponsored}></span><br>
+		<{/if}>
+		<a href="down.php?id=<{$soft.id}>" class="vinculo"><{$soft.nombre}></a><br>
+		<DIV id="res<{$soft.id}>" style="font-size: 10px; z-index: 5; LEFT: 25px; VISIBILITY: hidden; POSITION: relative; left: 0px; TOP: 0px; BACKGROUND-COLOR: transparent; DISPLAY: none;">
+		<img src="images/rating<{$soft.rating}>.gif" align="absmiddle" border="0">&nbsp;&nbsp;
+		<img src="images/ourrate<{$soft.calificacion}>.gif" align="absmiddle" border="0"><br>
+		<{$soft.desc}><br>
+		<img src="" alt="" width="<{$thumb_width}>" border="1" align="left" id="shot<{$soft.id}>" style="margin-right: 4px;"><strong><{$lng_os}></strong> <{$soft.os}><br>
+		<strong><{$lng_version}></strong> <{$soft.version}><br>
+		<strong><{$lng_filesize}></strong> <{$soft.size}><br>
+		<strong><{$lng_licence}></strong> <{$soft.licence}></td>
+        <td align="center" valign="top" style="border-right: 1px solid #cccccc;"><{$soft.fecha}><br>
+		<{if $soft.isnew}>
+			<span style="color: #FF0000; "><{$lng_new}></span>
+		<{elseif $soft.isupdate}>
+			<span style="color: #FF0000; "><{$lng_update}></span>
+		<{/if}>
+		</DIV></td>
+        <td align="center" valign="top" style="border-right: 1px solid #cccccc;"><{$soft.descargas}></td>
+        <td align="center" valign="top" nowrap="nowrap">
+		<a href="<{$xoops_url}>/user.php?uid=<{$soft.submitter}>"><{$soft.uname}></a><br><br>
+		<img src="images/down_icon.gif" width="17" height="17" align="absmiddle"><br>
+		<a href="down.php?id=<{$soft.id}>&amp;sw=now"><{$lang_download_now}></a><br><br>
+		<{if $soft.shots}>
+			<img src="images/view_shots.gif" align="absmiddle"> <br><a href="shots.php?id=<{$soft.id}>"><{$view_shots}></a>
+		<{/if}>
+		</td>
+      </tr>
+	  <{/foreach}>
+	  <!-- termina ciclo de resultados -->
+    </table>

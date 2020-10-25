@@ -1,0 +1,64 @@
+<{include file="$module_path/templates/rmdp_nav_srh.html"}><br>
+<{include file="$module_path/templates/rmdp_sponsored.html"}>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>
+	<{if !$shotlimit}>
+	<table width="100%"  border="0" cellspacing="1" cellpadding="0" class="outer">
+      <tr>
+        <th colspan="2"><{$lang_newshot}></th>
+      </tr>
+      <form name="frmAdd" method="post" action="mysends.php" enctype="multipart/form-data">
+	  	<{if $rmdp_uploadfile==1 }>
+        <tr align="left">
+          <td class="even"><{$lang_img}></td>
+          <td class="odd"><input value="<{$edit_small}>" name="img" type="file" id="img" size="40"></td>
+        </tr>
+		<{/if}>
+        <tr align="left">
+          <td class="even"><{$lang_small}><br>
+		  <span style="font-size: 10px;"><{$lang_small_desc}></span></td>
+          <td class="odd"><input value="<{$edit_small}>" name="small" type="text" id="small" size="40" maxlength="255"></td>
+        </tr>
+        <tr align="left">
+          <td class="even"><{$lang_big}><br>
+		  <span style="font-size: 10px;"><{$lang_small_desc}></span></td>
+          <td class="odd"><input value="<{$edit_big}>" name="big" type="text" id="big" size="40" maxlength="255"></td>
+        </tr>
+        <tr align="left">
+          <td class="even"><{$lang_text}></td>
+          <td class="odd"><input value="<{$edit_text}>" name="text" type="text" id="text" size="40" maxlength="255"></td>
+        </tr>
+        <tr align="left">
+          <td class="even">&nbsp;</td>
+          <td class="odd"><input type="submit" name="Submit" value="<{$lang_send}>">
+              <input name="id" type="hidden" id="id2" value="<{$soft_id}>">
+              <input name="op" type="hidden" id="op2" value="<{$action}>">
+              <input type="hidden" name="shot" value="<{$edit_shot}>"></td>
+        </tr>
+      </form>
+    </table>
+	<{/if}>
+	</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr></table>
+  <table width="100%" class="outer" cellspacing="1">
+  <tr class="head">
+    <td colspan="2"><{$lang_downshot}></td>
+  </tr>
+	  <{foreach item=s from=$shots}>
+      <tr class="<{cycle values="even,odd"}>">
+        <td width="<{$img_width}>"><a href="<{$s.big}>" target="_blank"><img src="<{$s.small}>" width="<{$img_width}>" border="0"></a></td>
+        <td><a href="<{$s.big}>" target="_blank"><{$s.text}></a><br>
+		<span style="font-size: 10px;"><strong><{$lang_hits}></strong> <{$s.hits}>&nbsp;&nbsp;&nbsp;<strong><{$lang_date}></strong> <{$s.fecha}></span><br>
+		<br><a href="mysends.php?op=delshot&amp;id=<{$soft_id}>&amp;shot=<{$s.id}>"><{$lang_delete}></a></td>
+      </tr>
+	  <{/foreach}>
+	<!-- Fin de la tabla de pantallas -->	</td>
+  </tr>
+</table>

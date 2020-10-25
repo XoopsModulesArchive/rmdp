@@ -1,0 +1,30 @@
+<div class="rmdp_navigation"><{$location_bar}></div>
+<{include file="$module_path/templates/rmdp_nav_srh.html"}><br>
+<{include file="$module_path/templates/rmdp_sponsored.html"}>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right" class="sponsor_title">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="right" class="rmdp_pages">
+	<img src="images/rating5.gif" border="0" align="absmiddle"> <img src="images/<{$module_language}>/users.gif" border="0">&nbsp;&nbsp;
+	<img src="images/ourrate5.gif" border="0" align="absmiddle"> <img src="images/<{$module_language}>/ourrate.gif" border="0">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<{$lang_toppop}> &nbsp; <{$lng_total_results}></td>
+  </tr>
+  <tr>
+    <td>
+	<!-- Resultados -->
+	<{include file="$module_path/templates/rmdp_result_list.html"}>
+	<!-- Fin de Resultados -->
+	</td>
+  </tr>
+  <tr><td align="right"><{$nav_pages}></td>
+  </tr>
+
+  <tr><td>&nbsp;</td></tr>
+  <tr>
+    <td>
+	<{include file="$module_path/templates/rmdp_fav_pop.html"}>
+	</td>
+  </tr>
+</table>

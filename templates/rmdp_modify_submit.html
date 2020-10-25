@@ -1,0 +1,121 @@
+<{include file="$module_path/templates/rmdp_nav_srh.html"}>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><{$lang_info}></td>
+  </tr>
+  <tr>
+    <td><{$lang_info2}></td>
+  </tr>
+  <tr>
+    <td><table width="100%"  border="0" cellspacing="1" cellpadding="0" class="outer">
+      <tr>
+        <th colspan="2" align="left"><{$modify_title}></th>
+        </tr>
+		<form name="frmSend" method="post" action="mysends.php">
+      <tr>
+        <td width="27%" class="even">*<{$lang_nombre}></td>
+        <td width="73%" class="even"><input value="<{$param_nombre}>" name="nombre" type="text" id="nombre" size="50" maxlength="200"></td>
+      </tr>
+      <tr>
+        <td class="even">*<{$lang_version}></td>
+        <td class="even"><input value="<{$param_version}>" name="version" type="text" id="version" size="50" maxlength="10"></td>
+      </tr>
+      <tr>
+        <td class="even">*<{$lang_licencia}></td>
+        <td class="even"><select name="licencia">
+          <{foreach item=lic from=$licencias}>
+		  	<{if $lic.id==$param_licencia}>
+          		<option value="<{$lic.id}>" selected><{$lic.nombre}></option>
+		   <{else}>
+		   		<option value="<{$lic.id}>"><{$lic.nombre}></option>
+		   <{/if}>
+          <{/foreach}>
+        </select></td>
+      </tr>
+	  <tr>
+        <td class="even"><{$lang_archivo}><br>
+		<span style="font-size: 10px;"><{$lang_max_size}></span></td>
+        <td class="even"><input type="hidden" name="MAX_FILE_SIZE" value="<{$max_file_size}>">
+		<input name="archivo" type="file" id="archivo" size="50"><br>
+		<span style="font-size:10px; font-weight: bold;"><{$rmdp_actualfile}></span></td>
+      </tr>
+      <tr>
+        <td class="even"><{$lang_archivo_url}></td>
+        <td class="even"><input value="<{$param_archivo}>" name="archivo_url" type="text" id="archivo" size="50" maxlength="255"></td>
+      </tr>
+	  <tr>
+        <td class="even"><{$lang_img}><br>
+		<span style="font-size: 10px; "><{$lang_imgtip}></span></td>
+        <td class="even"><input value="<{$param_img}>" name="img" type="file" id="img" size="50"><br>
+		<{$rmdp_actualimg}></td>
+      </tr>
+      <tr>
+        <td class="even"><{$lang_img_url}><br>
+		<span style="font-size: 10px; "><{$lang_imgtip}></span></td>
+        <td class="even"><input value="<{$param_img}>" name="img_url" type="text" id="img" size="50" maxlength="255"></td>
+      </tr>
+      <tr>
+        <td class="even">*<{$lang_catego}></td>
+        <td class="even"><select name="idc" id="idc">
+		<{foreach item=cat from=$srhoptions}>
+			<{if $cat.id==$param_id_cat}>
+				<option value="<{$cat.id}>" selected><{$cat.nombre}></option>
+			<{else}>
+				<option value="<{$cat.id}>"><{$cat.nombre}></option>
+			<{/if}>
+		<{/foreach}>
+        </select></td>
+      </tr>
+      <tr>
+        <td class="even">*<{$lang_desc}><br>
+		<span style="font-size:10px; "><{$lang_desctip}></span></td>
+        <td class="even"><{$rmdp_editor}></td>
+      </tr>
+      <tr>
+        <td class="even"><{$lang_anonimo}></td>
+        <td class="even"><input name="anonimo" type="radio" value="1" <{if $param_anonimo==1}>checked<{/if}>> 
+          <{$lang_yes}> &nbsp;&nbsp;
+          <input name="anonimo" type="radio" value="0" <{if $param_anonimo==0}>checked<{/if}>> <{$lang_no}></td>
+      </tr>
+      <tr>
+        <td class="even">*<{$lang_size}></td>
+        <td class="even"><input value="<{$param_size}>" name="size" type="text" id="size" size="50" maxlength="30"></td>
+      </tr>
+      <tr>
+        <td class="even"><{$lang_web}></td>
+        <td class="even"><input value="<{$param_urltitle}>" name="web" type="text" id="web" size="50" maxlength="200"></td>
+      </tr>
+      <tr>
+        <td class="even"><{$lang_url}></td>
+        <td class="even"><input value="<{$param_url}>" name="url" type="text" id="url" size="50" maxlength="255">
+          <input name="op" type="hidden" id="op" value="send">
+		  <input name="id" type="hidden" id="id" value="<{$param_id_soft}>"></td>
+      </tr>
+      <tr>
+        <td class="even">*<{$lang_os}></td>
+        <td class="even">
+		<select name="os[]" multiple="multiple" size="5">
+		<{foreach item=os from=$plataformas}>
+			<option value="<{$os.id}>" <{if $os.select}>selected="selected"<{/if}>><{$os.nombre}></option>
+		<{/foreach}>
+		</select>
+		</td>
+      </tr>
+	  <tr><th colspan="2"><{$mirrors_title}></th></tr>
+	  <{foreach item=mir from=$mirrors}>
+	  	<tr align="left" class="odd"><td><{$lang_mirtitle}></td>
+		<td><input type="text" size="50" name="mirrortitle[]" value="<{$mir.titulo}>"></td></tr>
+		<tr align="left" class="odd"><td><{$lang_mirurl}></td>
+		<td><input type="text" size="50" name="mirrorfile[]" value="<{$mir.url}>"></td></tr>		
+		<tr><td colspan="2" style="height:1px; background-color:#CCCCCC;"><img src="images/pixel.gif" border="0" height="1"></td></tr>
+	  <{/foreach}>
+      <tr>
+        <td class="even"><input type="hidden" name="filetype" value="<{$param_filetype}>">
+		<input type="hidden" name="imgtype" value="<{$param_imgtype}>">
+		<input type="hidden" name="id_soft" value="<{$param_id_soft}>"></td>
+        <td class="even"><input name="Submit" type="submit" onClick="return validateForm();" value="<{$lang_send}>"></td>
+      </tr>
+		</form>
+    </table></td>
+  </tr>
+</table>

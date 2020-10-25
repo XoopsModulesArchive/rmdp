@@ -1,0 +1,55 @@
+<div class="rmdp_navigation"><{$location_bar}></div>
+<{include file="$module_path/templates/rmdp_nav_srh.html"}>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr><td>&nbsp;</td></tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center">
+		<{if $rmdp_autorun==1}>
+  		<!-- DESCARGA EN PROGRESO
+  			<{* Solo mostramos esta fila cuando rmdp_autorun es igual a 1 *}> -->
+		<{if $rmdp_showbanner==1}>
+		<!-- Mostramos el banner -->
+		<div class="banner" style="float: right; margin-right: 4px;"><{$code_banner}></div>
+		<!-- fin del banner -->
+		<{/if}>
+		<div class="editor_review">
+			<{$lang_thanks}><br>
+			<a href="down.php?id=<{$download_id}>" style="font-size: 125%;"><{$download_name}></a><br><br>
+			
+			<span style="color: #999999;"><{$lng_while_down}></span><br><br>
+			<{$lng_ifnostart}>
+		</div><br><br>
+		<!-- FIN DE DESCARGA EN PROGRESO -->
+		<{/if}>
+		
+		<!-- Información de enlaces alternativos -->
+		<{if $rmdp_showbanner==1 && $rmdp_autorun==0}>
+			<!-- Mostramos el banner -->
+			<div class="banner" style="float: right; margin-right: 4px;"><{$code_banner}></div>
+			<!-- fin del banner -->
+		<{/if}>
+		<div class="down_mirrors">
+			<img src="images/<{$module_language}>/problems.gif" border="0" alt=""><br><br>
+			<{$lang_try}><br><br>
+			<{foreach item=link from=$rmdp_mirrors}>
+				<div style="padding: 1px; margin-right: 4px; float:left; width:27px; height:27px;"><img src="images/files/<{$link.icon}>.gif" border="0" align="absmiddle"></div>
+				<div class="mirrors_list">
+				<a href="down.php?id=<{$download_id}>&amp;sw=now&amp;auto=1&amp;mir=<{$link.id}>"><{$link.titulo}></a><br>
+				<{$link.format}></div>
+			<{/foreach}>
+		</div><br><br>
+		<!-- Fin de enlaces alternativos -->
+    </td>
+  </tr>   
+  <tr>
+    <td>
+	<!-- Favoritos y Populares -->
+	<{include file="$module_path/templates/rmdp_fav_pop.html"}>
+	<!-- Fin de Favoritos y Populares -->
+	</td>
+  </tr>
+</table>
+<{$form_download}>

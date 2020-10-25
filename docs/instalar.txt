@@ -1,0 +1,37 @@
+RMSOFT Downloads Plus 1.5
+CopyRight © 2005. Red México Soft
+Modulo para el control y administración de descargas
+====================================================
+
+ATENCIÓN: Si ya tienes instalada la versión 1.2 de RMSOFT Downloads Plus
+	  sigue las intrucciones de actualización antes de subir los archivos.
+
+INSTALACIÓN
+-------------------
+Sigue estos sencillos pasos para instalar el módulo:
+
+1. sube el directorio "rmdp" al directorio "modules/" en tu
+   servidor web.
+2. Ve al panel de control de XOOPS -> Administración de Modulos
+3. Instala el módulo.
+4. ¡LISTO!.
+
+
+ACTUALIZACIÓN
+-------------------
+¡ No subas los archivos antes de seguir los siguientes pasos !
+
+Para actualizar el módulo sigue los siguientes pasos:
+
+1. Por precaución te aconsejamos crear un respaldo de los datos 
+   de RMSOFT Downloads Plus actuales.
+1. Sube el archivo update.php al directorio "modules/rmdp" en tu servidor web.
+2. Dirige tu navegador a "http://www.tusitio.com/modules/rmdp/update.php"
+   reemplaza "tusitio.com" por tu dominio.
+3. sigue las instrucciones que aparecen
+4. Una vez finalizada la ejecución del script sube los nuevos archivos a tu servidor
+5. Ve al panel de control de xoops -> Administración de Módulos
+6. Actualiza el módulo RMSOFT Downloads Plus.
+7. ¡LISTO! ahora puedes utilizar el módulo.
+
+Para mayor información visita www.xoops-mexico.net

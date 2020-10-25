@@ -1,0 +1,18 @@
+<!-- Tabla para las categor&iacute;as -->
+<table class="categos" cellspacing="0">
+	<tr><td width="50" nowrap="nowrap" bgcolor="#FFCE00"><img src="images/<{$module_language}>/catego_title_left.gif" width="50" height="34"></td>
+	  <td bgcolor="#FFCE00"><img src="images/<{$module_language}>/catego_title.gif" width="118" height="34"></td>
+    </tr>
+	<!-- ciclo para las categor&iacute;as -->
+	<{foreach item=catego from=$categos}>
+		<tr>
+         <td colspan="2" valign="top" class="<{cycle values="even,odd"}>">
+		 <{if $show_images==1}>
+		 	<{if $catego.img!=''}><img src="<{$catego.img}>" border="0" align="left" style="margin: 4px;"><{/if}>
+		 <{/if}>
+		 <a href="categos.php?id=<{$catego.id}>" class="vinculo"><{$catego.nombre}></a> <{if $catego.isnew}><img src="images/new.gif" align="top" border="0"><{/if}><br>
+		  <{$catego.subcats}> </td></tr>
+    <{/foreach}>
+	<!-- Fin del Ciclo de categor&iacute;as -->              
+</table>
+<!-- Fin de tabla para las categor&iacute;as -->

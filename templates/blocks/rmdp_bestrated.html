@@ -1,0 +1,6 @@
+<table width='100%' cellpadding="3" cellspacing="0" border="0">
+<{foreach item=down from=$block.bestrated}>
+<tr><td align='left' class="<{cycle values="even,odd"}>"><a href="<{$xoops_url}>/modules/rmdp/down.php?id=<{$down.id}>"><{$down.nombre}></a><br>
+<img src="<{$xoops_url}>/modules/rmdp/images/rating<{$down.rating}>.gif" border='0'> (<{$down.votos}> Votos)</td></tr>
+<{/foreach}>
+</table>

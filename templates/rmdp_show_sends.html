@@ -1,0 +1,23 @@
+<div class="rmdp_navigation"><{$location_bar}></div>
+<{include file="$module_path/templates/rmdp_nav_srh.html"}><br>
+<table class="outer" width="100%"  border="0" cellspacing="1">
+	<tr>
+    	<th colspan="4"><{$lang_mydowns}></th>
+	</tr>
+	<tr class="head" align="center">
+		<td><{$lang_name}></td>
+		<td><{$lang_date}></td>
+		<td><{$lang_downs}></td>
+		<td><{$lang_options}></td>
+	</tr>
+	<{foreach item=d from=$downloads}>
+        <tr class="<{cycle values="even,odd"}>">
+          <td align="left"><a href="down.php?id=<{$d.id}>"><{$d.nombre}></a></td>
+          <td align="center" style="font-size:10px;"><{$d.fecha}></td>
+          <td align="center"><{$d.descargas}></td>
+          <td align="center" nowrap><a href="mysends.php?op=modify&amp;id=<{$d.id}>"><{$lang_modify}></a>&nbsp;|
+		  <a href="mysends.php?op=shots&amp;id=<{$d.id}>"><{$lang_shots}></a></td>
+        </tr>
+	<{/foreach}>
+      </table>
+

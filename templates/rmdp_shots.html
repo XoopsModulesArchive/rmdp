@@ -1,0 +1,25 @@
+<div class="rmdp_navigation"><{$location_bar}></div>
+<{include file="$module_path/templates/rmdp_nav_srh.html"}><br>
+<{include file="$module_path/templates/rmdp_sponsored.html"}><br>
+
+	<!-- Tabla de las imágenes //-->
+	<table width="100%"  border="0" cellspacing="1" cellpadding="0" class="outer">
+	  <tr><th colspan="<{$total_cols}>"><{$lng_shotsof}></th></tr>
+      <tr align="center">
+	  <{assign var="i" value="1"}>
+	  <{foreach item=shot from=$shots}>
+	  	<{if $i>$total_cols}>
+			</tr>
+			<tr><td valign="top" colspan="<{$total_cols}>">&nbsp;</td></tr>
+			<tr align="center">
+			<{assign var="i" value="1"}>
+		<{/if}>
+        <td valign="top" width="<{math equation="x / y" x=100 y=$total_cols}>%" class="<{cycle values="even,odd"}>">
+		<a href="<{$shot.link}>"><img src="<{$shot.small}>" width="<{$img_width}>" border='0'}></a><br><{$shot.desc}>
+		<{if $shot.isnew}><img src="images/new.gif" border="0"><{/if}></td>
+		<{assign var="i" value=$i+1}>
+	  <{/foreach}>
+      </tr>
+    </table><br>
+	<!-- Fin de tabla de las imágenes //-->
+	<{include file="$module_path/templates/rmdp_fav_pop.html"}>
